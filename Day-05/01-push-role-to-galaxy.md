@@ -41,5 +41,5 @@ git push -u origin main
 4. Import the Role to Ansible Galaxy
 
 ```
-ansible-galaxy role import <your_github_username> <role-name>
+ansible-galaxy import <your_github_username> <role-name> --token <token>
 ```
