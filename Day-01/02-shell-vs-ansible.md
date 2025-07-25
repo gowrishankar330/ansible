@@ -23,3 +23,11 @@ echo "hi"
 
 Easily and quickly scale the systems you automate through a modular design that supports a large range of operating systems, cloud platforms, and network devices.
 
+
+use this command incase while checking ansible --version you get like "root@ubuntu system:/# ansible --version
+ERROR: Ansible could not initialize the preferred locale: unsupported locale setting"
+
+sudo apt update
+sudo apt install locales
+sudo dpkg-reconfigure locales
+
