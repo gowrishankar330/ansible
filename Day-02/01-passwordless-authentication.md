@@ -18,4 +18,10 @@ ssh-copy-id -f "-o IdentityFile <PATH TO PEM FILE>" ubuntu@<INSTANCE-PUBLIC-IP>
 - Go to the file `/etc/ssh/sshd_config.d/60-cloudimg-settings.conf`
 - Update `PasswordAuthentication yes`
 - Restart SSH -> `sudo systemctl restart ssh`
-
+Make sure ssh is installed in all manage nodes.
+-ssh-keygen -t ed25519 -C "ansible@control" 
+-ssh-copy-id -i /root/.ssh/id_ed25519.pub root@172.17.0.4  
+Incase your manage node says permission denied. then, u need to enable password authentication to yes
+-grep PermitRootLogin /etc/ssh/sshd_config 
+-sed -i 's/^#\?PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config
+-sed -i 's/^#\?PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config
