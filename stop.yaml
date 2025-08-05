@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become : true
+  gather_facts: yes
+
+
+  tasks:
+    - name: shutdown instances
+      ansible.builtin.shell: /sbin/shutdown now
+      when: 
+       ansible_facts['distribution'] == "Ubuntu"
